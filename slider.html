@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<style>
+.mySlides {display:none;}
+
+.w3-container,.w3-panel{
+	padding:0.01em 16px
+}
+.w3-content{
+	max-width:980px;
+	margin:auto
+	}
+.w3-rest{
+	overflow:hidden
+}
+.w3-panel{margin-top:16px;
+	margin-bottom:16px
+}
+.w3-animate-top{position:relative;
+	animation:animatetop 0.4s
+}
+@keyframes animatetop{
+	from{top:-300px;opacity:0} 
+	to{top:0;opacity:1}
+}
+
+
+.w3-animate-bottom{
+	position:relative;
+	animation:animatebottom 0.4s
+	}
+@keyframes animatebottom{
+	from{
+		bottom:-300px;
+		opacity:0
+		} 
+	to{
+		bottom:0;
+		opacity:1
+	}
+}
+
+.w3-section,.w3-code{
+	margin-top:16px!important;
+	margin-bottom:16px!important
+}
+
+.w3-animate-left{
+	position:relative;
+	animation:animateleft 0.4s
+}
+@keyframes animateleft{
+	from{
+		left:-300px;
+		opacity:0
+	} 
+	to{left:0;
+		opacity:1
+	}
+}
+
+.w3-animate-right{
+	position:relative;
+	animation:animateright 0.8s
+	}
+@keyframes animateright{
+	from{
+		right:-300px;
+		opacity:0
+	} 
+	to{
+		right:0;
+		opacity:1
+	}
+}
+.img-container{
+	width: 100%;
+	height: auto;
+}
+
+.img-container .after{
+	position: absolute;
+	rgba(0,0,0,0.6);
+	display: block;
+	color: #fff;
+	z-index: 1;
+	width: 33.2%;
+    height: 42%;
+    background-color: rgba(0,0,0,0.6);
+
+}
+
+
+
+</style>
+<body>
+
+<div class="w3-container">
+  <h2>Animated Slides</h2>
+  <p>Slide or fade in an element from the top, bottom, left or right of the screen with the w3-animate-* classes.</p>
+</div>
+
+<div class="w3-content w3-section" style="max-width:500px; overflow:hidden;">
+	<div class="img-container">
+		<div class="after">This is something</div>
+  		<img class="mySlides w3-animate-right" src="img_rr_01.jpg" style="width:100%">
+  	</div>
+  	<div class="img-container">
+  		<div class="after">This is something</div>
+  		<img class="mySlides w3-animate-right" src="img_rr_02.jpg" style="width:100%">
+  	</div>
+  	<div class="img-container">
+  		<div class="after">This is something</div>
+  		<img class="mySlides w3-animate-right" src="img_rr_03.jpg" style="width:100%">
+  	</div>
+  	<div class="img-container">
+  		<div class="after">This is something</div>
+  		<img class="mySlides w3-animate-right" src="img_rr_04.jpg" style="width:100%">
+  	</div>
+</div>
+
+<script>
+var myTimer = [4000,4000,4000,4000];
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    
+    var x = document.getElementsByClassName("mySlides");
+    var overlay = document.getElementsByClassName("after");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+      overlay[i].style.display = "none"; 
+    }
+    myIndex++;
+    
+    if (myIndex > x.length) {myIndex = 1}   
+    console.log(myTimer[myIndex-1]); 
+    x[myIndex-1].style.display = "block"; 
+    overlay[myIndex-1].style.display  = "block";
+    setTimeout(carousel, myTimer[myIndex-1]);    
+}
+</script>
+
+</body>
+</html>
